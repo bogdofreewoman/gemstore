@@ -7,7 +7,7 @@ $email = $_POST['email'];
 $f_name = $_POST['firstName'];
 $s_name = $_POST['secondName'];
 $password = $_POST['password_reg'];
-$password_conf = $_POST['password_conf'];
+$password_conf  = $_POST['password_conf'];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 $success = true;
 

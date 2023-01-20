@@ -11,15 +11,13 @@ $password_conf = $_POST['password_conf'];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 $success = true;
 
-$sql = getArrayQuery("SELECT * FROM User WHERE Email = '$email';");
-$count = count($email);
-if($count > $email){
+$sql = getArrayQuery("SELECT Email FROM User WHERE Email = '$email';");
+$count = count($sql);
 
-}else{
+if($count > 0) {
     $_SESSION['msg-email-err'] = 'This Email is already used';
 }
-//var_dump;($sql);
-////die()
+
 if (empty($password) || empty($password_conf)) {
     $success = false;
     $_SESSION['msg-err'] = 'You need enter password and confirm password inputs!';

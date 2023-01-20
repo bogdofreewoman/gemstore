@@ -119,6 +119,8 @@ session_start();?>
                 if($_SESSION){
                     echo '<p class="msg-email-err">'.$_SESSION['msg-email-err'].'</p>';
                 }
+                unset($_SESSION['msg-email-err']);
+
                 if($_SESSION['msg-succ']){
                     echo'<p class="msg-succ">'.$_SESSION['msg-succ'].'</p>';
                 }

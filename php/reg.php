@@ -11,24 +11,26 @@ $password_conf = $_POST['password_conf'];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 $success = true;
 
-$sql = mysqli_query("SELECT Email FROM User;");
-$sql = mysqli_fetch_assoc($sql);
+$sql = getArrayQuery("SELECT * FROM User WHERE Email = '$email';");
+$count = count($email);
+if($count > $email){
 
+}else{
+    $_SESSION['msg-email-err'] = 'This Email is already used';
+}
+//var_dump;($sql);
+////die()
+if (empty($password) || empty($password_conf)) {
+    $success = false;
+    $_SESSION['msg-err'] = 'You need enter password and confirm password inputs!';
+}
+if ($password !== $password_conf) {
+    $success = false;
+    $_SESSION['msg-err'] ='Password is not correct';
+}
 
-var_dump();
-die();
-
-//if (empty($password) || empty($password_conf)) {
-//    $success = false;
-//    $_SESSION['msg-err'] = 'You need enter password and confirm password inputs!';
-//}
-//if ($password !== $password_conf) {
-//    $success = false;
-//    $_SESSION['msg-err'] ='Password is not correct';
-//}
-//
-//if ($success) {
-//    $_SESSION['msg-succ'] ='You Registered';
-//    mysqli_query($conn , "INSERT INTO `User` (`Email`,`LastName`,`FirstName`,`Password`) VALUES ('$email','$f_name','$s_name','$password_hash')");
-//}
-//header('Location: ../login.php');
+if ($success) {
+    $_SESSION['msg-succ'] ='You Registered';
+    mysqli_query($conn , "INSERT INTO `User` (`Email`,`LastName`,`FirstName`,`Password`) VALUES ('$email','$f_name','$s_name','$password_hash')");
+}
+header('Location: ../login.php');

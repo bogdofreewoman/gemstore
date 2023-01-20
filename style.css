@@ -810,6 +810,7 @@ fieldset[disabled] a.btn {
 .btn.btn-primary {
   background: var(--primary-color);
   color: var(--light-color);
+  border-radius: 3px;
 }
 .btn.btn-primary:hover {
   background-color: var(--dark-color);

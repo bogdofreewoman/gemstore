@@ -117,15 +117,15 @@ session_start();?>
             <input class="u-full-width" type="password" name="password_conf" id="password_conf" class="form-control" placeholder="Confirm Password">
             <?php
                 if($_SESSION){
-                    echo '<p class="msg-email-err msg-err"></p>';
+                    echo '<p class="msg-email-err">'.$_SESSION['msg-email-err'].'</p>';
                 }
                 if($_SESSION['msg-succ']){
-                    echo'<p class="msg-succ">'.$_SESSION['msg-succ']. '</p>';
+                    echo'<p class="msg-succ">'.$_SESSION['msg-succ'].'</p>';
                 }
                 unset($_SESSION['msg-succ']);
 
                 if($_SESSION['msg-err']){
-                    echo'<p class="msg-err">'.$_SESSION['msg-err']. '</p>';
+                    echo'<p class="msg-err">'.$_SESSION['msg-err'].'</p>';
                 }
                 unset($_SESSION['msg-err']);
             ?>

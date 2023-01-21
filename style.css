@@ -1406,14 +1406,14 @@ This is main CSS file that contains custom style rules used in this template
 
 }
 .msg-succ{
-  color: #25e02e;
-  text-align: center;
+  margin: 0 0 3px 15px;
+  color: #8f8f9d;
   font-weight: bold;
 }
 
 .msg-err{
-  color:#e02525;
-  text-align: center;
+  margin: 0 0 3px 15px;
+  color: #e13535;
   font-weight: bold;
 }
 

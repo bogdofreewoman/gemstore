@@ -81,20 +81,17 @@ session_start();?>
     <div class="comment-respond">
       <h2 class="log-reg-title">Login</h2>
         <form method="post" class="form-group" action="http://localhost:8000/php/reg.php">
-          <input class="u-full-width" type="text" name="email" id="email-log" class="form-control" placeholder="Your E-mail Address">
-          <input class="u-full-width" type="password" name="password" id="password_log" class="form-control" placeholder="Password">
-          <div class="col-md-12">
-            <label class="example-send-yourself-copy">
-              <input type="checkbox">
-              <span class="label-body">Remember Me.</span>
-            </label>
-          </div>
+          <input class="u-full-width" type="text" name="email_log" id="email-log" class="form-control" placeholder="Your E-mail Address">
+          <input class="u-full-width" type="password" name="password_log" id="password_log" class="form-control" placeholder="Password">
+          <?php
+
+          ?>
           <div class="col-md-12">
             <input class="btn btn-primary btn-full" type="submit" value="Submit">
           </div>
         </form>
         <div class="reg-in-log">
-          <p class="reg-in-log"> Registration</p>
+          <a href="" class="reg-in-log"> Registration</a>
         </div>
       </div>
     </div>
@@ -110,27 +107,33 @@ session_start();?>
         <div class="comment-respond">
           <h2 class="log-reg-title">Registration</h2>
           <form  method="post" class="form-group" action="http://localhost:8000/php/reg.php">
-            <input class="u-full-width" type="text" name="email" id="email-reg" class="form-control" placeholder="Your E-mail Address">
+            <input class="u-full-width" type="text" name="email_reg" id="email-reg" class="form-control" placeholder="Your E-mail Address">
             <input class="u-full-width" type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name">
             <input class="u-full-width" type="text" name="secondName" id="secondName" class="form-control" placeholder="Second Name">
             <input class="u-full-width" type="password" name="password_reg" id="password_reg" class="form-control" placeholder="Password">
             <input class="u-full-width" type="password" name="password_conf" id="password_conf" class="form-control" placeholder="Confirm Password">
             <?php
                 if($_SESSION){
-                    echo '<p class="msg-email-err">'.$_SESSION['msg-email-err'].'</p>';
+                    echo '<p class="msg-err">'.$_SESSION['msg-email-err'].'</p>';
                 }
                 unset($_SESSION['msg-email-err']);
 
+                if($_SESSION['msg-name-err']){
+                    echo'<p class="msg-err">'.$_SESSION['msg-name-err'].'</p>';
+                }
+                unset($_SESSION['msg-name-err']);
+
+                if($_SESSION['msg-pass-err']){
+                    echo'<p class="msg-err">'.$_SESSION['msg-pass-err'].'</p>';
+                }
+                unset($_SESSION['msg-pass-err']);
+
                 if($_SESSION['msg-succ']){
-                    echo'<p class="msg-succ">'.$_SESSION['msg-succ'].'</p>';
+                    echo'<p class="msg-succ">'.$_SESSION['msg-succ'].' </p>';
                 }
                 unset($_SESSION['msg-succ']);
 
-                if($_SESSION['msg-err']){
-                    echo'<p class="msg-err">'.$_SESSION['msg-err'].'</p>';
-                }
-                unset($_SESSION['msg-err']);
-            ?>
+                ?>
             <div class="col-md-12">
               <input class="btn btn-primary btn-full" type="submit" value="Submit">
             </div>

@@ -44,6 +44,4 @@ if ($success) {
     mysqli_query($conn , "INSERT INTO `User` (`Email`,`LastName`,`FirstName`,`Password`) VALUES ('$email','$f_name','$s_name','$password_hash')");
 }
 
-header('Location: ../login.php');
-
-//password_verify()
+header('Location: ../registration.php');

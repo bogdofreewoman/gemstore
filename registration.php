@@ -1,5 +1,6 @@
 <?php
-session_start();?>
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,44 +74,17 @@ session_start();?>
 
 <!-- LOGIN-->
 
-<div class="main-log">
-    <div class="col-md-2">
-    </div>
-    <div class="log-reg">
-        <div class="col-md-3">
-            <div class="comment-respond">
-                <h2 class="log-reg-title">Login</h2>
-                <form method="post" class="form-group" action="http://localhost:8000/php/reg.php">
-                    <input class="u-full-width" type="text" name="email" id="email-log" class="form-control" placeholder="Your E-mail Address">
-                    <input class="u-full-width" type="password" name="password" id="password_log" class="form-control" placeholder="Password">
-                    <div class="col-md-12">
-                        <label class="example-send-yourself-copy">
-                            <input type="checkbox">
-                            <span class="label-body">Remember Me.</span>
-                        </label>
-                    </div>
-                    <div class="col-md-12">
-                        <input class="btn btn-primary btn-full" type="submit" value="Submit">
-                    </div>
-                </form>
-                <div class="reg-in-log">
-                    <p class="reg-in-log"> Registration</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- REGISTRATION -->
-
+<div class="col-md-4">
+</div>
+<div class="log-reg">
 <div class="main-reg">
-    <div class="col-md-2"></div>
-    <div class="log-reg">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="comment-respond">
-                <h2 class="log-reg-title">Registration</h2>
+              <div class="login-register">
+                <h1 class="log-reg-title">Registration</h1>
                 <form  method="post" class="form-group" action="http://localhost:8000/php/reg.php">
-                    <input class="u-full-width" type="text" name="email" id="email-reg" class="form-control" placeholder="Your E-mail Address">
+                    <input class="u-full-width" type="text" name="email_reg" id="email-reg" class="form-control" placeholder="Your E-mail Address">
                     <input class="u-full-width" type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name">
                     <input class="u-full-width" type="text" name="secondName" id="secondName" class="form-control" placeholder="Second Name">
                     <input class="u-full-width" type="password" name="password_reg" id="password_reg" class="form-control" placeholder="Password">
@@ -121,20 +95,35 @@ session_start();?>
                     }
                     unset($_SESSION['msg-succ']);
 
-                    if($_SESSION['msg-err']){
-                        echo'<p class="msg-err">'.$_SESSION['msg-err']. '</p>';
+                    if($_SESSION['msg-email-err']){
+                        echo'<p class="msg-err">'.$_SESSION['msg-email-err']. '</p>';
                     }
-                    unset($_SESSION['msg-err']);
+                    if($_SESSION['msg-name-err']){
+                        echo'<p class="msg-err">'.$_SESSION['msg-name-err']. '</p>';
+                    }
+                    if($_SESSION['msg-pass-err']){
+                        echo'<p class="msg-err">'.$_SESSION['msg-pass-err']. '</p>';
+                    }
+
+                    unset($_SESSION['msg-email-err']);
+                    unset($_SESSION['msg-name-err']);
+                    unset($_SESSION['msg-pass-err']);
                     ?>
                     <div class="col-md-12">
                         <input class="btn btn-primary btn-full" type="submit" value="Submit">
                     </div>
+                    <div class="col-md-12">
+                        <a href="login.php">
+                            <p class="btn-log-reg">Already registered? - Log in</p>
+                        </a>
+                    </div>
                 </form>
+               </div>
             </div>
         </div>
     </div>
 </div>
-<div class="col-md-2">
+<div class="col-md-4">
 </div>
 </div>
 <footer>

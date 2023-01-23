@@ -54,7 +54,7 @@ session_start();?>
                       <a href="contact.html" class="text-uppercase item-anchor">Contact</a>
                     </li>
                     <li class="menu-item">
-                      <a href="login.php" class="text-uppercase item-anchor">My Account</a>
+                      <a href="registration.php" class="text-uppercase item-anchor">My Account</a>
                     </li>
                   </ul>
                 </div>
@@ -74,77 +74,45 @@ session_start();?>
   <!-- LOGIN-->
 
     <div class="main-log">
-    <div class="col-md-2">
+    <div class="col-md-4">
     </div>
   <div class="log-reg">
-  <div class="col-md-3">
+  <div class="col-md-4">
     <div class="comment-respond">
-      <h2 class="log-reg-title">Login</h2>
-        <form method="post" class="form-group" action="http://localhost:8000/php/reg.php">
+     <div class="login-register">
+      <h1 class="log-reg-title">Login</h1>
+        <form method="post" class="form-group" action="http://localhost:8000/php/log.php">
           <input class="u-full-width" type="text" name="email_log" id="email-log" class="form-control" placeholder="Your E-mail Address">
           <input class="u-full-width" type="password" name="password_log" id="password_log" class="form-control" placeholder="Password">
           <?php
+            if($_SESSION['msg-succ']){
+                echo'<p class ="msg-succ">'.$_SESSION['msg-succ'].'</p>';
+            }
+            unset($_SESSION['msg-succ']);
 
+          if($_SESSION['msg-email-err']){
+              echo'<p class ="msg-err">'.$_SESSION['msg-email-err'].'</p>';
+          }
+          unset($_SESSION['msg-email-err']);
+
+          if($_SESSION['msg-pass-err']){
+              echo'<p class ="msg-err">'.$_SESSION['msg-pass-err'].'</p>';
+          }
+          unset($_SESSION['msg-pass-err']);
           ?>
           <div class="col-md-12">
             <input class="btn btn-primary btn-full" type="submit" value="Submit">
           </div>
         </form>
-        <div class="reg-in-log">
-          <a href="" class="reg-in-log"> Registration</a>
-        </div>
+         <div class="col-md-12">
+             <a href="registration.php">
+                 <p class="btn-log-reg">Don't have an account yet? - Registration</p>
+             </a>
+         </div>
       </div>
     </div>
    </div>
-  </div>
-
-  <!-- REGISTRATION -->
-
-  <div class="main-reg">
-    <div class="col-md-2"></div>
-    <div class="log-reg">
-      <div class="col-md-3">
-        <div class="comment-respond">
-          <h2 class="log-reg-title">Registration</h2>
-          <form  method="post" class="form-group" action="http://localhost:8000/php/reg.php">
-            <input class="u-full-width" type="text" name="email_reg" id="email-reg" class="form-control" placeholder="Your E-mail Address">
-            <input class="u-full-width" type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name">
-            <input class="u-full-width" type="text" name="secondName" id="secondName" class="form-control" placeholder="Second Name">
-            <input class="u-full-width" type="password" name="password_reg" id="password_reg" class="form-control" placeholder="Password">
-            <input class="u-full-width" type="password" name="password_conf" id="password_conf" class="form-control" placeholder="Confirm Password">
-            <?php
-                if($_SESSION){
-                    echo '<p class="msg-err">'.$_SESSION['msg-email-err'].'</p>';
-                }
-                unset($_SESSION['msg-email-err']);
-
-                if($_SESSION['msg-name-err']){
-                    echo'<p class="msg-err">'.$_SESSION['msg-name-err'].'</p>';
-                }
-                unset($_SESSION['msg-name-err']);
-
-                if($_SESSION['msg-pass-err']){
-                    echo'<p class="msg-err">'.$_SESSION['msg-pass-err'].'</p>';
-                }
-                unset($_SESSION['msg-pass-err']);
-
-                if($_SESSION['msg-succ']){
-                    echo'<p class="msg-succ">'.$_SESSION['msg-succ'].' </p>';
-                }
-                unset($_SESSION['msg-succ']);
-
-                ?>
-            <div class="col-md-12">
-              <input class="btn btn-primary btn-full" type="submit" value="Submit">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="col-md-2">
-    </div>
-    </div>
+        <div class="col-md-4"></div>
   <footer>
   </footer>
     <script src="js/jquery-1.11.0.min.js"></script>

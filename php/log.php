@@ -3,44 +3,23 @@ session_start();
 require_once 'connection.php';
 global $conn;
 
-$email = $_POST['email_log'];
 $password = $_POST['password_log'];
-$success = true;
+$email = $_POST['email_log'];
 
-
-$sql = getArrayQuery("SELECT Email , Password FROM User WHERE Email ='$email';");
-
-$user_row = $sql[0];
-$hash = $user_row['Password'];
-$result = password_verify($password,$hash);
-$email_db = $user_row['Email'];
-
-if(empty($email)){
-    $_SESSION['msg-email-err'] = 'You must enter your Email';
-    $success = false;
-}
-
-if($email != $email_db){
-    $_SESSION['msg-email-err'] = 'We don`t have this Account, please Register';
-    $success = false;
-    header('Location: ../login.php');
+if(empty($email) || empty($password)){
+    $_SESSION['msg-email-err'] = 'You must enter all fields';
     exit();
 }
 
-if(empty($password)){
-    $_SESSION['msg-pass-err'] = 'You must enter your Password';
-    $success = false;
+$sql = getArrayQuery("SELECT Email , Password FROM User WHERE Email = '".$email."';");
+if ($sql) {
+    $user_row = $sql[0];
+    $result = password_verify($password, $user_row['Password']);
+    if ($result) {
+        $_SESSION['USER'] = $user_row;
+        header('Location: ../account.php');
+        exit;
+    }
 }
-
-if(!$result){
-    $_SESSION['msg-pass-err'] = 'You must enter your right Password';
-    $success = false;
-}
-
-if($success){
-    $_SESSION['msg-succ'] ='You Log in';
-    header('Location: ../account.php');
-    exit;
-}
-
+$_SESSION['msg-email-err'] = 'Incorrect email or password';
 header('Location: ../login.php');

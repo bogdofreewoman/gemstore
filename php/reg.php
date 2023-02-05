@@ -39,9 +39,15 @@ if ($password !== $password_conf) {
     $_SESSION['msg-pass-err'] ='Password is not correct';
 }
 
+if(strlen($password) < 8){
+    $success = false;
+    $_SESSION['msg-pass-err'] ='Symbols must be more than Eight';
+}
+
 if ($success) {
     $_SESSION['msg-succ'] ='You Registered';
     mysqli_query($conn , "INSERT INTO `User` (`Email`,`LastName`,`FirstName`,`Password`) VALUES ('$email','$f_name','$s_name','$password_hash')");
+
 }
 
 header('Location: ../registration.php');

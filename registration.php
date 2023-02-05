@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +29,7 @@ session_start();
                 <div class="row d-flex align-items-center">
                     <div class="col-md-2 col-sm-6">
                         <div class="main-logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img src="images/main-logo.png" alt="logo">
                             </a>
                         </div>
@@ -40,22 +39,22 @@ session_start();
                             <div class="main-menu stellarnav desktop light">
                                 <ul class="menu-list list-unstyled">
                                     <li class="menu-item">
-                                        <a href="index.html" class="text-uppercase item-anchor">Home</a>
+                                        <a href="index.php" class="text-uppercase item-anchor">Home</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="about.html" class="text-uppercase item-anchor">About</a>
+                                        <a href="about.php" class="text-uppercase item-anchor">About</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="shop.html" class="text-uppercase item-anchor">Shop</a>
+                                        <a href="shop.php" class="text-uppercase item-anchor">Shop</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="blog.html" class="text-uppercase item-anchor">Blog</a>
+                                        <a href="blog.php" class="text-uppercase item-anchor">Blog</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="contact.html" class="text-uppercase item-anchor">Contact</a>
+                                        <a href="cart.php" class="text-uppercase item-anchor">Cart</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="login.php" class="text-uppercase item-anchor">My Account</a>
+                                        <a href="account.php" class="text-uppercase item-anchor">My Account</a>
                                     </li>
                                 </ul>
                             </div>
